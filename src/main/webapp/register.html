@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Car</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #6a82fb;
+      outline: none;
+      box-shadow: 0 0 8px rgba(106,130,251,0.3);
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register Car</h2>
+    <form action="registercar" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="carid">Car ID</label>
+        <input type="text" id="carid" name="carid" placeholder="Enter Car ID" required>
+      </div>
+      <div class="form-group">
+        <label for="carname">Car Name</label>
+        <input type="text" id="carname" name="carname" placeholder="Enter Car Name" required>
+      </div>
+      <div class="form-group">
+        <label for="carmodel">Car Model</label>
+        <input type="text" id="carmodel" name="carmodel" placeholder="Enter Car Model" required>
+      </div>
+      <div class="form-group">
+        <label for="carnumber">Car Number</label>
+        <input type="text" id="carnumber" name="carnumber" placeholder="Enter Car Number" required>
+      </div>
+      <div class="form-group">
+        <label for="carownername">Car Owner Name</label>
+        <input type="text" id="carownername" name="carownername" placeholder="Enter Owner Name" required>
+      </div>
+      <div class="form-group">
+        <label for="carownername">Car Owner Name</label>
+        Upload Image: <input type="file" name="carImage"><br><br>
+      </div>
+       
+      <button type="submit">Register Car</button>
+    </form>
+  </div>
+</body>
+</html>
