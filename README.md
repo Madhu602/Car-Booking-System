@@ -1,18 +1,15 @@
-#🚗 Car Rental System
-📌 Overview
+# 🚗 Car Rental System  
 
-This is a Java-based Car Rental System built using Servlets, JSP, and PostgreSQL for database management.
-The system allows users to:
+## 📌 Overview  
+This is a Java-based Car Rental System built using Servlets, JSP, and PostgreSQL for database management.  
+The system allows users to:  
 
-Register cars with details and images
+- Register cars with details and images  
+- View available cars  
+- Book cars with rental dates  
+- Manage car booking records  
 
-View available cars
-
-Book cars with rental dates
-
-Manage car booking records
-
-##📂 Project Structure
+## 📂 Project Structure  
 CarRent/
 ├── src/
 │   └── CarRent/
@@ -32,152 +29,122 @@ CarRent/
 └── META-INF/
     └── persistence.xml           # JPA configuration
 
-##✨ Features
-###🚘 Car Registration
+## ✨ Features  
 
-Register new cars with details and images
+### 🚘 Car Registration  
+- Register new cars with details and images  
+- File upload capability for car images  
 
-File upload capability for car images
+### 📊 Car Management  
+- View all available cars  
+- View all booked cars  
+- Update car status (**Available / Booked**)  
 
-##📊 Car Management
+### 📅 Booking System  
+- Book available cars with date selection  
+- Store booking information with customer details  
 
-View all available cars
+### 🖼️ Image Handling  
+- Upload and store car images  
+- Display images in car listings  
 
-View all booked cars
+## 🛠 Technologies Used  
+- **Backend:** Java Servlets, JPA (Hibernate)  
+- **Frontend:** HTML, CSS, JSP  
+- **Database:** PostgreSQL  
+- **File Handling:** Multipart form data for image uploads  
 
-Update car status (Available / Booked)
+## 🗄 Database Schema  
 
-##📅 Booking System
+### Car Table  
+| Column       | Type     | Description        |  
+|--------------|----------|--------------------|  
+| carId        | INTEGER  | Primary Key        |  
+| carName      | VARCHAR  | Car name           |  
+| carModel     | VARCHAR  | Car model          |  
+| carNumber    | INTEGER  | License number     |  
+| carOwnerName | VARCHAR  | Owner's name       |  
+| status       | VARCHAR  | Available/Booked   |  
+| image        | VARCHAR  | Path to car image  |  
 
-Book available cars with date selection
+### Booking Table  
+| Column    | Type     | Description                  |  
+|-----------|----------|------------------------------|  
+| bookId    | INTEGER  | Primary Key (Auto-generated) |  
+| carId     | INTEGER  | Foreign Key → Car            |  
+| userName  | VARCHAR  | Customer name                |  
+| fromDate  | VARCHAR  | Start date of booking        |  
+| toDate    | VARCHAR  | End date of booking          |  
+| carImage  | VARCHAR  | Path to car image            |  
 
-Store booking information with customer details
+## ⚙️ Setup Instructions  
 
-##🖼️ Image Handling
+### ✅ Prerequisites  
+- Java JDK 8 or higher  
+- Apache Tomcat  
+- PostgreSQL database  
+- Maven (for dependency management)  
 
-Upload and store car images
+### 🛠 Database Setup  
+1. Create a PostgreSQL database named **`car_rental`**  
+2. Update `persistence.xml` with your database credentials  
+3. JPA will auto-create the tables  
 
-Display images in car listings
+### 🚀 Deployment  
+1. Clone or download the project  
+2. Configure your Tomcat server  
+3. Deploy the application to Tomcat  
+4. Start the server  
 
-##🛠 Technologies Used
+## 🎯 Usage  
+- **Home Page:** Open `index.html` → Main menu  
+- **Register Car:** Add a new car to the system  
+- **View Available Cars:** List all cars that can be booked  
+- **View Booked Cars:** See all current bookings  
+- **Book a Car:** Select dates and provide user details  
 
-Backend: Java Servlets, JPA (Hibernate)
 
-Frontend: HTML, CSS, JSP
+## 🌐 API Endpoints  
 
-Database: PostgreSQL
+| Method | Endpoint             | Description            |  
+|--------|----------------------|------------------------|  
+| POST   | `/registercar`       | Register a new car     |  
+| GET    | `/seeallcars`        | Get all available cars |  
+| GET    | `/seeallbookedcars`  | Get all booked cars    |  
+| GET    | `/booking`           | Create a new booking   |  
 
-File Handling: Multipart form data for image uploads
 
-##🗄 Database Schema
-Car Table
-Column	Type	Description
-carId	INTEGER	Primary Key
-carName	VARCHAR	Car name
-carModel	VARCHAR	Car model
-carNumber	INTEGER	License number
-carOwnerName	VARCHAR	Owner's name
-status	VARCHAR	Available/Booked
-image	VARCHAR	Path to car image
-Booking Table
-Column	Type	Description
-bookId	INTEGER	Primary Key (Auto-generated)
-carId	INTEGER	Foreign Key → Car
-userName	VARCHAR	Customer name
-fromDate	VARCHAR	Start date of booking
-toDate	VARCHAR	End date of booking
-carImage	VARCHAR	Path to car image
-⚙️ Setup Instructions
-##✅ Prerequisites
+## 🔑 Key Features Implementation  
 
-Java JDK 8 or higher
+### 📷 Image Upload  
+- Uses `@MultipartConfig` for file upload  
+- Stores images in `uploads/` directory  
+- Saves relative path in the database  
 
-Apache Tomcat
+### 📅 Booking Management  
+- Updates car status → **Booked**  
+- Creates a new booking record with details  
 
-PostgreSQL database
+### 🚦 Car Status Management  
+- **Available:** Can be booked  
+- **Booked:** Currently rented out  
 
-Maven (for dependency management)
 
-##🛠 Database Setup
+## 🚀 Future Enhancements  
+- User authentication & authorization  
+- Payment integration  
+- Email notifications for bookings  
+- Advanced search & filtering  
+- Admin dashboard  
+- Rental pricing & billing system  
 
-Create a PostgreSQL database named car_rental
 
-Update persistence.xml with your database credentials
+## 🐛 Troubleshooting  
+- **Image upload issues:** Ensure `uploads/` exists with write permissions  
+- **Database connection errors:** Verify PostgreSQL is running & credentials in `persistence.xml`  
+- **JPA errors:** Check persistence configuration  
 
-JPA will auto-create the tables
 
-##🚀 Deployment
-
-Clone or download the project
-
-Configure your Tomcat server
-
-Deploy the application to Tomcat
-
-Start the server
-
-##🎯 Usage
-
-Home Page: index.html → Main menu
-
-Register Car: Add a new car to the system
-
-View Available Cars: List all cars that can be booked
-
-View Booked Cars: See all current bookings
-
-Book a Car: Select dates and provide user details
-
-##🌐 API Endpoints
-Method	Endpoint	Description
-POST	/registercar	Register a new car
-GET	/seeallcars	Get all available cars
-GET	/seeallbookedcars	Get all booked cars
-GET	/booking	Create a new booking
-##🔑 Key Features Implementation
-##📷 Image Upload
-
-Uses @MultipartConfig for file upload
-
-Stores images in uploads/ directory
-
-Saves relative path in the database
-
-##📅 Booking Management
-
-Updates car status → Booked
-
-Creates a new booking record with details
-
-##🚦 Car Status Management
-
-Available: Can be booked
-
-Booked: Currently rented out
-
-##🚀 Future Enhancements
-
-User authentication & authorization
-
-Payment integration
-
-Email notifications for bookings
-
-Advanced search & filtering
-
-Admin dashboard
-
-Rental pricing & billing system
-
-##🐛 Troubleshooting
-
-Image upload issues: Ensure uploads/ exists with write permissions
-
-Database connection errors: Verify PostgreSQL is running & credentials in persistence.xml
-
-JPA errors: Check persistence configuration
-
-##📜 License
-
-This project is for educational purposes.
-Feel free to modify and extend as needed.
+## 📜 License  
+This project is for **educational purposes**.  
+Feel free to **modify and extend** as needed.  
