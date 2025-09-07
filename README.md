@@ -10,6 +10,8 @@ The system allows users to:
 - Manage car booking records  
 
 ## 📂 Project Structure  
+
+
 CarRent/
 ├── src/
 │   └── CarRent/
@@ -28,6 +30,8 @@ CarRent/
 │   └── uploads/                  # Directory for car images
 └── META-INF/
     └── persistence.xml           # JPA configuration
+
+    
 
 ## ✨ Features  
 
