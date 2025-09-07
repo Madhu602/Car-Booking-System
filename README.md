@@ -11,7 +11,7 @@ The system allows users to:
 
 ## 📂 Project Structure  
 
-
+```
 CarRent/
 ├── src/
 │   └── CarRent/
@@ -30,7 +30,7 @@ CarRent/
 │   └── uploads/                  # Directory for car images
 └── META-INF/
     └── persistence.xml           # JPA configuration
-
+```
     
 
 ## ✨ Features  
